@@ -3,63 +3,90 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="自主映画ねっと — 世界の自主映画を発見するキュレーションメディア。" />
-    <title>自主映画ねっと | CINEVERSE</title>
+    <meta name="description" content="自主映画ねっと — 作品と出会い、街を歩く。世界の自主映画が集まるバーチャル映画タウン。" />
+    <title>自主映画ねっと | バーチャル自主映画タウン</title>
     <link rel="stylesheet" href="../assets/styles.css" />
   </head>
-  <body class="media-page">
-    <header class="site-header">
-      <a class="wordmark" href="index.html">自主映画ねっと<b>by CINEVERSE</b></a>
+  <body class="media-page" data-season="spring">
+    <header class="site-header town-header">
+      <a class="wordmark" href="index.html">自主映画ねっと<b>CINEVERSE TOWN</b></a>
       <nav class="site-nav" aria-label="メインメニュー">
-        <a href="#films">映画を探す</a><a href="#categories">ジャンルから探す</a><a href="#stories">読みもの</a>
+        <a href="#town">街を歩く</a>
+        <a href="#screenings">上映中の映画</a>
+        <a href="#sponsor">広告を出す</a>
         <a class="nav-service" href="../eiga-kantoku/index.html">映画監督になろう ↗</a>
-        <a class="nav-button" href="#newsletter">ニュースレター</a>
+        <a class="nav-button" href="#screenings">今すぐ観る</a>
       </nav>
       <button class="mobile-toggle" type="button" aria-label="メニューを開く" aria-expanded="false">☰</button>
     </header>
     <main>
-      <section class="media-hero">
-        <div class="media-hero-copy">
-          <span class="eyebrow">A WINDOW TO INDEPENDENT FILM</span>
-          <h1>まだ見ぬ映画と、<br /><em>出会う。</em></h1>
-          <p class="hero-summary">国境も、言葉も越えて。<br />世界で生まれた小さな映画の、大きな物語を届けます。</p>
-          <div class="hero-signal"><span class="signal-dot"></span> CURATED WEEKLY / EST. 2026</div>
+      <section class="town-journey" id="town" data-town aria-label="バーチャル自主映画タウン">
+        <div class="town-sticky">
+          <div class="town-sky" aria-hidden="true"><i class="town-sun"></i><i class="town-moon"></i><i class="town-cloud town-cloud--one"></i><i class="town-cloud town-cloud--two"></i></div>
+          <div class="town-stars" aria-hidden="true"></div>
+          <div class="town-season-fall" aria-hidden="true">
+            <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+          </div>
+          <div class="town-wire town-wire--one" aria-hidden="true"></div><div class="town-wire town-wire--two" aria-hidden="true"></div>
+          <div class="town-bulbs" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+
+          <div class="town-hud"><span class="town-hud__live"><i></i> TOWN IS OPEN</span><span class="town-hud__season" data-season-label>SPRING / 2026</span></div>
+          <div class="town-copy"><p class="town-copy__eyebrow">VIRTUAL INDEPENDENT FILM TOWN</p><h1>まだ見ぬ映画が、<br /><em>街を灯す。</em></h1><p>看板を押して、映画を観る。<br />この街の光は、すべて誰かの物語です。</p></div>
+
+          <div class="city-building city-building--left" aria-hidden="true"><span class="city-building__roof"></span><span class="city-window city-window--1"></span><span class="city-window city-window--2"></span><span class="city-window city-window--3"></span><span class="city-window city-window--4"></span></div>
+          <div class="city-building city-building--right" aria-hidden="true"><span class="city-building__roof"></span><span class="city-window city-window--1"></span><span class="city-window city-window--2"></span><span class="city-window city-window--3"></span><span class="city-window city-window--4"></span></div>
+
+          <button class="city-sign city-sign--film" type="button" data-film data-film-title="雨のあとに聞こえること" data-film-meta="SOUTH KOREA / 2025 / 18 MIN" data-film-byline="監督：キム・ユンジ" data-film-color="#ffda52"><span>NOW<br />SHOWING</span><small>雨のあとに<br />聞こえること</small></button>
+          <button class="city-sign city-sign--pink" type="button" data-film data-film-title="街の残響" data-film-meta="MEXICO / 2025 / 14 MIN" data-film-byline="監督：ルシア・ロペス" data-film-color="#ff5cb4"><span>FILM<br />TOWN</span><small>PLAY<br />TRAILER ↗</small></button>
+          <button class="city-sign city-sign--blue" type="button" data-film data-film-title="夜の底で" data-film-meta="CANADA / 2024 / 11 MIN" data-film-byline="監督：ノア・ウェスト" data-film-color="#6bc7ff"><span>SCREEN<br />02</span></button>
+          <a class="city-sign city-sign--ad" href="#sponsor"><span>AD</span><small>ここに貴社の<br />広告を出しませんか？</small><b>募集中 ↗</b></a>
+          <a class="city-sign city-sign--vertical" href="#sponsor"><span>ネオン看板<br />スポンサー<br />募集中</span></a>
+
+          <button class="town-theater" type="button" data-film data-film-title="雨のあとに聞こえること" data-film-meta="SOUTH KOREA / 2025 / 18 MIN" data-film-byline="監督：キム・ユンジ" data-film-color="#f7b348" aria-label="注目作品「雨のあとに聞こえること」の試写を開く">
+            <span class="theater-marquee">CINEVERSE THEATER</span><span class="theater-curtain theater-curtain--left"></span><span class="theater-curtain theater-curtain--right"></span><span class="theater-screen"><i>▶</i><small>今週の<br />特別上映</small></span><span class="theater-doors"></span><span class="theater-name">THEATER<br /><b>01</b></span>
+          </button>
+          <div class="city-road" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+          <p class="town-scroll-note"><span>SCROLL TO WALK</span><i>↓</i></p>
         </div>
-        <article class="featured-film" aria-label="今週の注目作品">
-          <span class="featured-badge">FEATURED FILM</span>
-          <span class="film-meta">SOUTH KOREA / 2025 / 18 MIN</span>
-          <h2>雨のあとに<br />聞こえること</h2>
-          <p>監督：キム・ユンジ</p>
-        </article>
+        <article class="town-scene town-scene--spring" data-season-scene="spring"><span>01</span><h2>春。<br />はじまりの予告編。</h2></article>
+        <article class="town-scene town-scene--summer" data-season-scene="summer"><span>02</span><h2>夏。<br />夜風と野外上映。</h2></article>
+        <article class="town-scene town-scene--autumn" data-season-scene="autumn"><span>03</span><h2>秋。<br />物語が深くなる。</h2></article>
+        <article class="town-scene town-scene--winter" data-season-scene="winter"><span>04</span><h2>冬。<br />光は、消えない。</h2></article>
       </section>
-      <section class="collection" id="films">
-        <div class="section-head"><div><span class="eyebrow">NEW DISCOVERIES</span><h2 class="section-title">今週、出会う映画</h2></div><a class="section-link" href="#categories">すべての映画を見る ↗</a></div>
-        <div class="film-grid">
-          <article class="film-card"><div class="poster poster-echo"><div><span class="poster-date">MEXICO / 2025</span><span class="poster-name">ECHOES<br />OF THE CITY</span></div></div><div class="card-info"><h3>街の残響</h3><p>メキシコ / ドラマ / 14 MIN</p></div></article>
-          <article class="film-card"><div class="poster poster-still"><div><span class="poster-date">JAPAN / 2025</span><span class="poster-name">静かな<br />午後</span></div></div><div class="card-info"><h3>静かな午後</h3><p>日本 / ドラマ / 22 MIN</p></div></article>
-          <article class="film-card"><div class="poster poster-night"><div><span class="poster-date">CANADA / 2024</span><span class="poster-name">Beneath<br />the Night</span></div></div><div class="card-info"><h3>夜の底で</h3><p>カナダ / SF / 11 MIN</p></div></article>
-          <article class="film-card"><div class="poster poster-horizon"><div><span class="poster-date">TURKEY / 2025</span><span class="poster-name">HORIZON</span></div></div><div class="card-info"><h3>地平線の向こう</h3><p>トルコ / ドキュメンタリー / 29 MIN</p></div></article>
+
+      <section class="town-screenings" id="screenings">
+        <div class="town-section-head"><div><p>ON THE TOWN SCREEN</p><h2>街角で、<br />いま上映中。</h2></div><span>作品ポスターを押すと<br />試写室が開きます。</span></div>
+        <div class="town-film-grid">
+          <button class="town-film-card town-film-card--orange" type="button" data-film data-film-title="街の残響" data-film-meta="MEXICO / 2025 / 14 MIN" data-film-byline="監督：ルシア・ロペス" data-film-color="#ff5e3a"><span class="town-film-card__type">SHORT / DRAMA</span><strong>街の<br />残響</strong><small>PLAY TRAILER ↗</small></button>
+          <button class="town-film-card town-film-card--cyan" type="button" data-film data-film-title="静かな午後" data-film-meta="JAPAN / 2025 / 22 MIN" data-film-byline="監督：高橋 真琴" data-film-color="#72e0d3"><span class="town-film-card__type">SHORT / JAPAN</span><strong>静かな<br />午後</strong><small>PLAY TRAILER ↗</small></button>
+          <button class="town-film-card town-film-card--violet" type="button" data-film data-film-title="地平線の向こう" data-film-meta="TURKEY / 2025 / 29 MIN" data-film-byline="監督：エリフ・デミル" data-film-color="#cf87ff"><span class="town-film-card__type">DOC / JOURNEY</span><strong>地平線の<br />向こう</strong><small>PLAY TRAILER ↗</small></button>
+          <a class="town-film-card town-film-card--all" href="#stories"><span>MORE THAN</span><strong>8,000<br /><i>FILMS</i></strong><small>すべての映画を探す ↗</small></a>
         </div>
       </section>
-      <section class="categories" id="categories">
-        <span class="eyebrow">BROWSE BY FEELING</span><h2 class="section-title">いまの気分から、<br />映画を選ぶ。</h2>
-        <div class="category-list">
-          <a class="category" href="#films"><span>01</span> ひとりでじっくり観たい <b>↗</b></a>
-          <a class="category" href="#films"><span>02</span> 世界の景色を旅したい <b>↗</b></a>
-          <a class="category" href="#films"><span>03</span> 少し不思議な世界へ <b>↗</b></a>
-          <a class="category" href="#films"><span>04</span> 新しい作り手に出会いたい <b>↗</b></a>
-        </div>
+
+      <section class="sponsor-district" id="sponsor">
+        <div class="sponsor-district__copy"><p>THE AD DISTRICT</p><h2>あなたの光を、<br />この街に。</h2><p class="sponsor-district__lead">映画を愛する人が集まる場所に、<br />あなたのブランドの看板を灯しませんか。</p><button class="town-button" type="button" data-open-sponsor>広告枠について相談する <span>↗</span></button></div>
+        <div class="ad-inventory" aria-label="広告枠のイメージ"><article><span>01 / MINI SIGN</span><strong>路地の<br />ネオン看板</strong><small>作品導線のそばで、静かに印象を残す。</small></article><article><span>02 / BIG SCREEN</span><strong>交差点の<br />LEDビジョン</strong><small>季節ごとに街の表情を変える大型枠。</small></article><article><span>03 / THEATER</span><strong>劇場前の<br />スポンサーボード</strong><small>上映前の観客へ、ブランドを届ける。</small></article></div>
       </section>
-      <section class="editorial" id="stories">
-        <div class="section-head"><div><span class="eyebrow">STORIES BEHIND THE SCREEN</span><h2 class="section-title">映画の、その先へ。</h2></div><a class="section-link" href="#stories">読みもの一覧 ↗</a></div>
-        <div class="article-grid">
-          <article class="article"><span class="article-label">INTERVIEW / 08.03.2026</span><h3>「撮ることで、故郷との距離を測っていた」<br />監督・サラ・オルティス</h3><p>メキシコの小さな港町を舞台に、失われゆく家族の記憶を描いた若き監督の言葉。</p></article>
-          <article class="article"><span class="article-label">ESSAY / 07.28.2026</span><h3>15分間の宇宙。短編映画がくれる、自由な時間。</h3><p>長さでは測れない映画体験について。</p></article>
-        </div>
+
+      <section class="town-stories" id="stories">
+        <div class="town-section-head"><div><p>BEHIND THE SIGNS</p><h2>映画の、その先で。</h2></div><a href="#town">街の入口へ戻る ↑</a></div>
+        <div class="town-story-list"><a href="#stories"><span>INTERVIEW / 08.03.2026</span><strong>「撮ることで、故郷との距離を測っていた」</strong><i>↗</i></a><a href="#stories"><span>ESSAY / 07.28.2026</span><strong>15分間の宇宙。短編映画がくれる、自由な時間。</strong><i>↗</i></a></div>
       </section>
-      <section class="site-intro" id="newsletter"><div><span class="eyebrow">WEEKLY LETTER</span><h2 class="section-title">週に一度、映画の便りを。</h2></div><a class="nav-button" href="mailto:hello@cineverse.example?subject=ニュースレター登録">登録する →</a></section>
     </main>
-    <footer class="site-footer"><div class="footer-top"><div class="footer-brand">CINE<span>VERSE</span></div><div class="footer-links"><a href="../index.html">CINEVERSEについて</a><a href="../eiga-kantoku/index.html">映画監督になろう</a><a href="#">運営者情報</a><a href="#">お問い合わせ</a></div></div><div class="footer-bottom"><span>© PROJECT CINEVERSE</span><span>MADE FOR INDEPENDENT FILM</span></div></footer>
+    <footer class="site-footer town-footer"><div class="footer-top"><div class="footer-brand">CINE<span>VERSE</span></div><div class="footer-links"><a href="../index.html">CINEVERSEについて</a><a href="../eiga-kantoku/index.html">映画監督になろう</a><a href="#sponsor">広告掲載について</a><a href="#town">自主映画ねっと</a></div></div><div class="footer-bottom"><span>© PROJECT CINEVERSE</span><span>THE TOWN NEVER STOPS ROLLING.</span></div></footer>
+
+    <button class="town-motion-stop" type="button" data-motion-stop>アニメーションを停止する</button>
+
+    <dialog class="town-dialog" id="film-dialog" aria-labelledby="film-dialog-title">
+      <form method="dialog"><button class="dialog-close" aria-label="試写室を閉じる">×</button></form>
+      <div class="dialog-film-screen" data-film-screen><div class="dialog-film-grain"></div><button class="dialog-play" type="button" data-play-demo aria-label="予告編を再生する">▶</button><p data-play-copy>TRAILER ROOM / CLICK PLAY</p></div>
+      <p class="dialog-kicker" data-film-meta>SHORT FILM</p><h2 id="film-dialog-title" data-film-title>作品タイトル</h2><p class="dialog-byline" data-film-byline>監督名</p><p class="dialog-note">これは試写室のデモです。実公開時は、各作品のYouTubeまたはVimeo映像へ接続できます。</p>
+    </dialog>
+    <dialog class="town-dialog town-dialog--sponsor" id="sponsor-dialog" aria-labelledby="sponsor-dialog-title">
+      <form method="dialog"><button class="dialog-close" aria-label="広告掲載についての案内を閉じる">×</button></form>
+      <p class="dialog-kicker">CINEVERSE TOWN PARTNERS</p><h2 id="sponsor-dialog-title">この街に、<br />あなたの看板を。</h2><p class="dialog-byline">ネオン看板・LEDビジョン・劇場前ボードなど、映画と相性のよい広告枠を準備しています。</p><div class="sponsor-dialog__slots"><span>NEON SIGN</span><span>LED VISION</span><span>THEATER BOARD</span></div><p class="dialog-note">お問い合わせ先と料金プランを設定後、この画面から広告相談を受け付けられます。</p>
+    </dialog>
     <script src="../assets/app.js"></script>
   </body>
 </html>
