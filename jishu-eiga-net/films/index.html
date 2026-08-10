@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="自主映画ねっとの映画データベース。国・ジャンル・監督名などから作品を探せます。" />
+    <link rel="canonical" href="https://demodesuyo.github.io/project-cineverse/jishu-eiga-net/films/" />
+    <title>映画を探す | 自主映画ねっと</title>
+    <link rel="stylesheet" href="../../assets/styles.css" />
+  </head>
+  <body class="database-page">
+    <header class="site-header database-header"><a class="wordmark" href="../">自主映画ねっと<b>FILM DATABASE</b></a><nav class="site-nav" aria-label="メインメニュー"><a href="../">街を歩く</a><a href="./" aria-current="page">映画を探す</a><a href="../interviews/">インタビュー</a><a href="../about.html">自主映画ねっとについて</a><a class="nav-service" href="../../eiga-kantoku/index.html">映画監督になろう ↗</a></nav><button class="mobile-toggle" type="button" aria-label="メニューを開く" aria-expanded="false">☰</button></header>
+    <main>
+      <section class="database-hero"><p class="eyebrow">FILM DATABASE</p><h1>世界中の自主映画を、<br />探す。</h1><p>タイトル、監督、国、ジャンルから、見たい映画へたどり着く。</p><span class="database-hero__count">現在 <b data-film-count>0</b> 作品公開中 <small>（デモデータ）</small></span></section>
+      <section class="database-controls" aria-label="作品を検索・絞り込み"><div class="search-field"><label for="film-search">作品を検索</label><input id="film-search" data-film-search type="search" placeholder="タイトル・監督名・国・タグで検索" autocomplete="off" /></div><div class="filter-grid"><label>国<select data-film-country><option value="">すべての国</option><option>日本</option><option>韓国</option><option>台湾</option><option>メキシコ</option><option>トルコ</option><option>フランス</option><option>インド</option><option>ブラジル</option></select></label><label>ジャンル<select data-film-genre><option value="">すべてのジャンル</option><option>ドラマ</option><option>ドキュメンタリー</option><option>アニメーション</option><option>実験映画</option></select></label><label>並び順<select data-film-sort><option value="new">新着順</option><option value="year">公開年順</option><option value="runtime">上映時間順</option></select></label></div><p class="filter-note">公開年・上映時間・言語・字幕・作品タイプなどの詳細な検索は、データベース接続後に追加します。</p></section>
+      <section class="database-results"><div class="results-head"><p><b data-film-result-count>0 作品</b> を表示</p><span>デモデータを表示中</span></div><div class="database-film-grid" data-film-list><p class="no-results">作品データを読み込んでいます。</p></div></section>
+    </main>
+    <footer class="site-footer database-footer"><div class="footer-top"><div class="footer-brand">CINE<span>VERSE</span></div><div class="footer-links"><a href="../">自主映画ねっと</a><a href="../../eiga-kantoku/index.html">映画監督になろう</a><a href="../about.html">CINEVERSEについて</a><a href="../contact.html">お問い合わせ</a></div></div><div class="footer-bottom"><span>© PROJECT CINEVERSE</span><span>DEMO PROTOTYPE / DATA NOT CONNECTED</span></div></footer>
+    <script src="../../assets/film-data.js"></script><script src="../../assets/app.js"></script>
+  </body>
+</html>
