@@ -6,7 +6,7 @@
     <meta name="description" content="自主映画ねっと — 世界中の自主映画と偶然出会い、作品と監督を知る映画メディア。" />
     <link rel="canonical" href="https://demodesuyo.github.io/project-cineverse/jishu-eiga-net/" />
     <title>自主映画ねっと | CINEVERSE TOWN</title>
-    <link rel="stylesheet" href="../assets/styles.css" />
+    <link rel="stylesheet" href="../assets/styles.css?v=2" />
   </head>
   <body class="media-page official-media-page" data-season="spring">
     <header class="site-header town-header">
@@ -35,16 +35,16 @@
             <p class="town-copy__eyebrow">VIRTUAL INDEPENDENT FILM TOWN</p>
             <h1>まだ見ぬ映画が、<br /><em>街を灯す。</em></h1>
             <p>世界中の自主映画と出会う、<br />小さな映画の街。</p>
-            <div class="town-copy__actions"><a class="town-action town-action--light" href="#now-showing">街を歩く <span>↓</span></a><a class="town-action" href="films/">映画を探す <span>↗</span></a></div>
+            <div class="town-copy__actions"><a class="town-action town-action--light" href="#now-showing">街を歩く <span>↓</span></a><a class="town-action" href="films/">映画を探す <span>↗</span></a><a class="town-action town-action--random" href="films/" data-random-film>偶然の一本に出会う <span>✦</span></a></div>
           </div>
           <div class="city-building city-building--left" aria-hidden="true"><span class="city-building__roof"></span><span class="city-window city-window--1"></span><span class="city-window city-window--2"></span><span class="city-window city-window--3"></span><span class="city-window city-window--4"></span></div>
           <div class="city-building city-building--right" aria-hidden="true"><span class="city-building__roof"></span><span class="city-window city-window--1"></span><span class="city-window city-window--2"></span><span class="city-window city-window--3"></span><span class="city-window city-window--4"></span></div>
-          <button class="city-sign city-sign--film" type="button" data-film-open="rain-after"><span>NOW<br />SHOWING</span><small>雨のあとに<br />聞こえること</small></button>
-          <button class="city-sign city-sign--pink" type="button" data-film-open="city-echoes"><span>FILM<br />TOWN</span><small>PLAY<br />TRAILER ↗</small></button>
-          <button class="city-sign city-sign--blue" type="button" data-film-open="blue-hour"><span>SCREEN<br />02</span></button>
+          <button class="city-sign city-sign--film" type="button" data-town-film="rain-after"><span>NOW<br />SHOWING</span><small>雨のあとに<br />聞こえること</small></button>
+          <button class="city-sign city-sign--pink" type="button" data-town-film="city-echoes"><span>FILM<br />TOWN</span><small>PLAY<br />TRAILER ↗</small></button>
+          <button class="city-sign city-sign--blue" type="button" data-town-film="blue-hour"><span>SCREEN<br />02</span></button>
           <a class="city-sign city-sign--ad" href="#sponsor"><span>AD</span><small>ここに貴社の<br />広告を出しませんか？</small><b>募集中 ↗</b></a>
           <a class="city-sign city-sign--vertical" href="#sponsor"><span>ネオン看板<br />スポンサー<br />募集中</span></a>
-          <button class="town-theater" type="button" data-film-open="rain-after" aria-label="注目作品「雨のあとに聞こえること」の予告編を見る"><span class="theater-marquee">CINEVERSE THEATER</span><span class="theater-curtain theater-curtain--left"></span><span class="theater-curtain theater-curtain--right"></span><span class="theater-screen"><i>▶</i><small>今週の<br />特別上映</small></span><span class="theater-doors"></span><span class="theater-name">THEATER<br /><b>01</b></span></button>
+          <button class="town-theater" type="button" data-town-film="rain-after" aria-label="注目作品「雨のあとに聞こえること」の予告編を見る"><span class="theater-marquee">CINEVERSE THEATER</span><span class="theater-curtain theater-curtain--left"></span><span class="theater-curtain theater-curtain--right"></span><span class="theater-screen"><i>▶</i><small>今週の<br />特別上映</small></span><span class="theater-doors"></span><span class="theater-name">THEATER<br /><b>01</b></span></button>
           <div class="city-road" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
           <p class="town-scroll-note"><span>SCROLL TO WALK</span><i>↓</i></p>
         </div>
@@ -56,9 +56,9 @@
 
       <section class="now-showing" id="now-showing">
         <div class="section-label">NOW SHOWING <span>／ 今週の注目作品</span></div>
-        <div class="featured-film">
-          <div class="featured-film__poster"><div class="film-poster film-poster--rain" aria-hidden="true"><span>KR</span><strong>雨のあとに<br />聞こえること</strong><i>2025</i></div></div>
-          <div class="featured-film__copy"><p class="eyebrow">SHORT FILM / DRAMA</p><h2>雨のあとに<br />聞こえること</h2><p class="original-title">After the Rain, We Listen</p><dl class="film-facts"><div><dt>国</dt><dd>韓国</dd></div><div><dt>上映時間</dt><dd>18分</dd></div><div><dt>監督</dt><dd>キム・ユンジ</dd></div></dl><p class="featured-film__summary">雨が止んだソウルの路地で、音を録る女性は、何年も話していない父からの留守番電話を聞き返す。</p><div class="feature-actions"><button class="button-primary" type="button" data-film-open="rain-after">予告編を見る <span>▶</span></button><a class="button-secondary" href="films/rain-after/">作品ページへ <span>↗</span></a></div></div>
+        <div class="featured-film" data-town-featured>
+          <div class="featured-film__poster" data-town-featured-poster><div class="film-poster film-poster--rain" aria-hidden="true"><span>KR</span><strong>雨のあとに<br />聞こえること</strong><i>2025</i></div></div>
+          <div class="featured-film__copy"><p class="eyebrow">SHORT FILM / DRAMA</p><h2 data-town-featured-title>雨のあとに<br />聞こえること</h2><p class="original-title" data-town-featured-original>After the Rain, We Listen</p><dl class="film-facts" data-town-featured-facts><div><dt>国</dt><dd>韓国</dd></div><div><dt>上映時間</dt><dd>18分</dd></div><div><dt>監督</dt><dd>キム・ユンジ</dd></div></dl><p class="featured-film__summary" data-town-featured-description>雨が止んだソウルの路地で、音を録る女性は、何年も話していない父からの留守番電話を聞き返す。</p><div class="feature-actions"><button class="button-primary" type="button" data-town-featured-trailer>予告編を見る <span>▶</span></button><a class="button-secondary" href="films/rain-after/" data-town-featured-detail>作品ページへ <span>↗</span></a></div></div>
         </div>
       </section>
 
@@ -76,7 +76,7 @@
 
       <section class="world-discovery" id="world">
         <div class="world-discovery__heading"><p class="eyebrow">DISCOVER THE WORLD</p><h2>国から、<br />映画を探す。</h2><p>遠い国の街角から届いた物語を、国と地域からたどります。</p><a class="button-secondary" href="films/">国から映画を探す <span>↗</span></a></div>
-        <div class="country-grid"><a href="films/?country=日本"><b>JP</b><span>日本</span></a><a href="films/?country=韓国"><b>KR</b><span>韓国</span></a><a href="films/?country=台湾"><b>TW</b><span>台湾</span></a><a href="films/?country=フランス"><b>FR</b><span>フランス</span></a><a href="films/?country=インド"><b>IN</b><span>インド</span></a><a href="films/?country=ブラジル"><b>BR</b><span>ブラジル</span></a><a href="films/?country=メキシコ"><b>MX</b><span>メキシコ</span></a><a href="films/?country=トルコ"><b>TR</b><span>トルコ</span></a></div>
+        <div class="country-grid"><a href="films/?country=JP"><b>JP</b><span>日本</span></a><a href="films/?country=KR"><b>KR</b><span>韓国</span></a><a href="films/?country=TW"><b>TW</b><span>台湾</span></a><a href="films/?country=FR"><b>FR</b><span>フランス</span></a><a href="films/?country=IN"><b>IN</b><span>インド</span></a><a href="films/?country=BR"><b>BR</b><span>ブラジル</span></a><a href="films/?country=MX"><b>MX</b><span>メキシコ</span></a><a href="films/?country=TR"><b>TR</b><span>トルコ</span></a></div>
       </section>
 
       <section class="database-entry"><p class="eyebrow">FILM DATABASE</p><h2>世界中の自主映画を、<br />探す。</h2><p>現在 <b data-film-count>0</b> 作品公開中</p><a class="button-primary" href="films/">すべての映画を探す <span>↗</span></a></section>
@@ -91,7 +91,7 @@
     <button class="town-motion-stop" type="button" data-motion-stop>アニメーションを停止する</button>
     <dialog class="town-dialog" id="film-dialog" aria-labelledby="film-dialog-title"><form method="dialog"><button class="dialog-close" aria-label="試写室を閉じる">×</button></form><div class="dialog-film-screen" data-film-screen><div class="dialog-film-grain"></div><button class="dialog-play" type="button" data-play-demo aria-label="予告編のデモを再生する">▶</button><p data-play-copy>TRAILER ROOM / DEMO DATA</p></div><p class="dialog-kicker" data-film-meta>SHORT FILM</p><h2 id="film-dialog-title" data-film-title>作品タイトル</h2><p class="dialog-byline" data-film-byline>監督名</p><p class="dialog-note">この作品はデモデータです。正式公開時は、制作者が許可したYouTube公式プレイヤーをここに表示します。</p><a class="dialog-film-link" data-film-page href="films/">作品ページを見る ↗</a></dialog>
     <dialog class="town-dialog town-dialog--sponsor" id="sponsor-dialog" aria-labelledby="sponsor-dialog-title"><form method="dialog"><button class="dialog-close" aria-label="広告掲載についての案内を閉じる">×</button></form><p class="dialog-kicker">CINEVERSE TOWN PARTNERS</p><h2 id="sponsor-dialog-title">この街に、<br />あなたの看板を。</h2><p class="dialog-byline">ネオン看板・LEDビジョン・劇場前ボードなど、映画と相性のよい広告枠を準備しています。</p><div class="sponsor-dialog__slots"><span>NEON SIGN</span><span>LED VISION</span><span>THEATER BOARD</span></div><p class="dialog-note">お問い合わせ先と料金プランの設定後、この画面から広告相談を受け付けられます。</p></dialog>
-    <script src="../assets/film-data.js"></script>
-    <script src="../assets/app.js"></script>
+    <script src="../assets/film-data.js?v=2"></script>
+    <script src="../assets/app.js?v=2"></script>
   </body>
 </html>
