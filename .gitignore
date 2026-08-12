@@ -1,0 +1,10 @@
+# Local Supabase connection settings. Never commit secrets or project credentials.
+.env
+.env.*
+!.env.example
+
+# Generated GitHub Pages artifact
+dist/
+
+# Local Supabase development files
+supabase/.temp/
