@@ -26,8 +26,10 @@ jobs:
           node-version: 22
       - name: Build static Pages artifact
         env:
-          SUPABASE_URL: ${{ vars.SUPABASE_URL }}
-          SUPABASE_PUBLISHABLE_KEY: ${{ vars.SUPABASE_PUBLISHABLE_KEY }}
+          # Supabase Connect environment names. Older names remain as a
+          # temporary fallback, so an existing Pages deployment stays safe.
+          NEXT_PUBLIC_SUPABASE_URL: ${{ vars.NEXT_PUBLIC_SUPABASE_URL || vars.SUPABASE_URL }}
+          NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY: ${{ vars.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY || vars.SUPABASE_PUBLISHABLE_KEY }}
         run: node scripts/build-pages.mjs
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5

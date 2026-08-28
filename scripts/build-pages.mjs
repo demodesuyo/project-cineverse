@@ -21,9 +21,12 @@ const parseDotenv = async () => {
 };
 
 const localValues = await parseDotenv();
+const readConfigValue = (...names) => names.map((name) => process.env[name] || localValues[name]).find(Boolean) || "";
 const config = {
-  url: process.env.SUPABASE_URL || localValues.SUPABASE_URL || "",
-  publishableKey: process.env.SUPABASE_PUBLISHABLE_KEY || localValues.SUPABASE_PUBLISHABLE_KEY || ""
+  // Supabase Connect uses NEXT_PUBLIC_* names. Previous names remain only as
+  // an upgrade fallback for local builds and existing GitHub Variables.
+  url: readConfigValue("NEXT_PUBLIC_SUPABASE_URL", "SUPABASE_URL"),
+  publishableKey: readConfigValue("NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY", "SUPABASE_PUBLISHABLE_KEY")
 };
 
 await rm(output, { recursive: true, force: true });
