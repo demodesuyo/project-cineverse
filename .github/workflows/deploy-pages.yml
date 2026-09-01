@@ -17,6 +17,10 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    # This also makes environment-level Variables available to the build when
+    # they were created under the existing github-pages environment.
+    environment:
+      name: github-pages
     steps:
       - name: Checkout
         uses: actions/checkout@v6
@@ -30,6 +34,7 @@ jobs:
           # temporary fallback, so an existing Pages deployment stays safe.
           NEXT_PUBLIC_SUPABASE_URL: ${{ vars.NEXT_PUBLIC_SUPABASE_URL || vars.SUPABASE_URL }}
           NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY: ${{ vars.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY || vars.SUPABASE_PUBLISHABLE_KEY }}
+          CINEVERSE_REQUIRE_SUPABASE_CONFIG: "true"
         run: node scripts/build-pages.mjs
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5

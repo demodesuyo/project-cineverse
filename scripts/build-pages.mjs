@@ -29,6 +29,15 @@ const config = {
   publishableKey: readConfigValue("NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY", "SUPABASE_PUBLISHABLE_KEY")
 };
 
+const requiresSupabaseConfig = process.env.CINEVERSE_REQUIRE_SUPABASE_CONFIG === "true";
+if (requiresSupabaseConfig && (!config.url || !config.publishableKey)) {
+  const missing = [
+    !config.url && "NEXT_PUBLIC_SUPABASE_URL",
+    !config.publishableKey && "NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY"
+  ].filter(Boolean).join(", ");
+  throw new Error(`GitHub Pages deployment stopped: missing required GitHub Variable(s): ${missing}. Add them to Repository Variables or the github-pages environment, then run the workflow again.`);
+}
+
 await rm(output, { recursive: true, force: true });
 await mkdir(output, { recursive: true });
 const sourceEntries = await readdir(root, { withFileTypes: true });
