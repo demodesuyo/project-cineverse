@@ -7,6 +7,7 @@ const outputFlag = process.argv.indexOf("--out");
 const output = resolve(root, outputFlag >= 0 ? process.argv[outputFlag + 1] : "dist");
 const excludedNames = new Set([".git", ".github", "node_modules", "dist", "supabase", "scripts", ".env", ".env.local"]);
 const outputRootName = relative(root, output).split(/[\\/]/).filter(Boolean)[0];
+const assetVersion = process.env.GITHUB_SHA || "local";
 
 const parseDotenv = async () => {
   const localFile = resolve(root, ".env.local");
@@ -44,6 +45,26 @@ const sourceEntries = await readdir(root, { withFileTypes: true });
 await Promise.all(sourceEntries
   .filter((entry) => !excludedNames.has(entry.name) && entry.name !== outputRootName)
   .map((entry) => cp(resolve(root, entry.name), resolve(output, entry.name), { recursive: true })));
+
+const versionedAssetPattern = /(assets\/(?:runtime-config|supabase-client|cineverse-repository|film-data|app)\.js)(?:\?v=[^"'\s>]*)?/g;
+const rewriteAssetVersions = async (directory) => {
+  const entries = await readdir(directory, { withFileTypes: true });
+  await Promise.all(entries.map(async (entry) => {
+    const path = resolve(directory, entry.name);
+    if (entry.isDirectory()) {
+      await rewriteAssetVersions(path);
+      return;
+    }
+    if (!entry.isFile() || !entry.name.endsWith(".html")) return;
+    const html = await readFile(path, "utf8");
+    const rewritten = html.replace(versionedAssetPattern, `$1?v=${assetVersion}`);
+    if (rewritten !== html) await writeFile(path, rewritten, "utf8");
+  }));
+};
+
+// Every Pages deployment gets a unique asset URL. This prevents browsers from
+// keeping an earlier, blank runtime-config.js after Supabase Variables change.
+await rewriteAssetVersions(output);
 
 const safeJson = (value) => JSON.stringify(value).replace(/</g, "\\u003c");
 const runtimeConfig = `/* Generated at build time. Publishable key only; RLS protects data. */\nwindow.CINEVERSE_SUPABASE_CONFIG = Object.freeze({\n  url: ${safeJson(config.url)},\n  publishableKey: ${safeJson(config.publishableKey)}\n});\n`;

@@ -2,6 +2,11 @@
 (function startCineverseApplication() {
   const initialScriptUrl = document.currentScript?.src || new URL("assets/app.js", window.location.href).href;
   const assetBaseUrl = new URL(".", initialScriptUrl).href;
+  // GitHub Pages serves static files with a short cache lifetime. Keep every
+  // dynamically loaded data-layer asset on the same build version as app.js,
+  // so a newly deployed public runtime configuration is never masked by an
+  // older cached copy.
+  const assetVersion = new URL(initialScriptUrl).searchParams.get("v");
   const pathName = window.location.pathname;
   const jishuSegment = "/jishu-eiga-net/";
   const jishuSegmentIndex = pathName.indexOf(jishuSegment);
@@ -72,7 +77,9 @@
   };
 
   const loadAssetScript = (filename) => new Promise((resolve, reject) => {
-    const src = new URL(filename, assetBaseUrl).href;
+    const assetUrl = new URL(filename, assetBaseUrl);
+    if (assetVersion) assetUrl.searchParams.set("v", assetVersion);
+    const src = assetUrl.href;
     if ([...document.scripts].some((script) => script.src === src)) { resolve(); return; }
     const script = document.createElement("script");
     script.src = src;
