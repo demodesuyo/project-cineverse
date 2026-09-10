@@ -510,6 +510,27 @@
       if (detail) detail.href = movieUrl(featuredMovie);
       if (trailer) trailer.dataset.filmOpen = featuredMovie.slug;
     });
+    const townLiveData = town.querySelector("[data-town-live-data]");
+    if (townLiveData) {
+      const liveMovie = featuredMovie || publicMovies[0];
+      const publicCount = townLiveData.querySelector("[data-town-public-count]");
+      const publicFilm = townLiveData.querySelector("[data-town-featured-film]");
+      const hasLiveData = dataSource === "supabase" && dataMeta.movieCount !== null;
+      townLiveData.hidden = !hasLiveData;
+      if (hasLiveData) {
+        if (publicCount) publicCount.textContent = String(dataMeta.movieCount);
+        if (publicFilm) publicFilm.textContent = liveMovie?.title || "—";
+      }
+    }
+    const characterStage = town.querySelector("[data-town-character-stage]");
+    const characterImage = characterStage?.querySelector("[data-town-character-image]");
+    const characterSource = characterStage?.dataset.characterSrc?.trim();
+    if (characterStage && characterImage && characterSource) {
+      characterImage.addEventListener("load", () => { characterImage.hidden = false; characterStage.classList.add("has-town-character"); }, { once: true });
+      characterImage.addEventListener("error", () => { characterImage.hidden = true; characterStage.classList.remove("has-town-character"); characterImage.removeAttribute("src"); }, { once: true });
+      characterImage.decoding = "async";
+      characterImage.src = new URL(characterSource, window.location.href).href;
+    }
     const seasonLabels = { spring: "SPRING / 2026", summer: "SUMMER / 2026", autumn: "AUTUMN / 2026", winter: "WINTER / 2026" };
     const seasonLabel = document.querySelector("[data-season-label]");
     const setSeason = (season) => { document.body.dataset.season = season; if (seasonLabel) seasonLabel.textContent = seasonLabels[season]; };
