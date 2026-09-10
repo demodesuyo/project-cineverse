@@ -518,6 +518,49 @@
       town.querySelectorAll("[data-season-scene]").forEach((scene) => observer.observe(scene));
     }
     window.addEventListener("scroll", () => { if (town.getBoundingClientRect().top >= -1) setSeason("spring"); }, { passive: true });
+    // The additional town atmosphere is progressive enhancement: without
+    // JavaScript it remains a composed static scene. On larger screens a
+    // single animation frame per scroll update gives the city a light depth.
+    document.body.classList.add("is-town-enhanced");
+    const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const compactTownQuery = window.matchMedia("(max-width: 780px)");
+    let townParallaxFrame = null;
+    const resetTownParallax = () => {
+      const sticky = town.querySelector(".town-sticky");
+      if (!sticky) return;
+      sticky.style.setProperty("--town-parallax-deep-y", "0px");
+      sticky.style.setProperty("--town-parallax-mid-y", "0px");
+      sticky.style.setProperty("--town-parallax-front-y", "0px");
+    };
+    const shouldUseTownParallax = () => !reducedMotionQuery.matches && !compactTownQuery.matches && !document.body.classList.contains("is-town-motion-off");
+    const updateTownParallax = () => {
+      townParallaxFrame = null;
+      if (!shouldUseTownParallax()) { resetTownParallax(); return; }
+      const sticky = town.querySelector(".town-sticky");
+      if (!sticky) return;
+      const bounds = town.getBoundingClientRect();
+      const scrollDistance = Math.max(1, bounds.height - window.innerHeight);
+      const progress = Math.max(0, Math.min(1, -bounds.top / scrollDistance));
+      const drift = progress - .5;
+      sticky.style.setProperty("--town-parallax-deep-y", `${Math.round(drift * -22)}px`);
+      sticky.style.setProperty("--town-parallax-mid-y", `${Math.round(drift * -38)}px`);
+      sticky.style.setProperty("--town-parallax-front-y", `${Math.round(drift * -58)}px`);
+    };
+    const scheduleTownParallax = () => {
+      if (!shouldUseTownParallax()) { resetTownParallax(); return; }
+      if (townParallaxFrame === null) townParallaxFrame = window.requestAnimationFrame(updateTownParallax);
+    };
+    const syncTownMotion = () => {
+      if (townParallaxFrame !== null) { window.cancelAnimationFrame(townParallaxFrame); townParallaxFrame = null; }
+      scheduleTownParallax();
+    };
+    window.addEventListener("scroll", scheduleTownParallax, { passive: true });
+    window.addEventListener("resize", syncTownMotion, { passive: true });
+    [reducedMotionQuery, compactTownQuery].forEach((query) => {
+      if (typeof query.addEventListener === "function") query.addEventListener("change", syncTownMotion);
+      else if (typeof query.addListener === "function") query.addListener(syncTownMotion);
+    });
+    syncTownMotion();
     const filmDialog = document.querySelector("#film-dialog");
     const sponsorDialog = document.querySelector("#sponsor-dialog");
     const openDialog = (dialog) => { if (!dialog) return; if (typeof dialog.showModal === "function") dialog.showModal(); else { dialog.setAttribute("open", ""); dialog.setAttribute("aria-modal", "true"); } };
@@ -538,7 +581,7 @@
     }));
     document.querySelectorAll("[data-open-sponsor]").forEach((button) => button.addEventListener("click", () => openDialog(sponsorDialog)));
     const motionStops = document.querySelectorAll("[data-motion-stop]");
-    motionStops.forEach((button) => button.addEventListener("click", () => { const stopped = document.body.classList.toggle("is-town-motion-off"); motionStops.forEach((control) => { control.textContent = stopped ? "アニメーションを再生する" : "アニメーションを停止する"; }); }));
+    motionStops.forEach((button) => button.addEventListener("click", () => { const stopped = document.body.classList.toggle("is-town-motion-off"); motionStops.forEach((control) => { control.textContent = stopped ? "アニメーションを再生する" : "アニメーションを停止する"; }); syncTownMotion(); }));
     const playDemo = filmDialog?.querySelector("[data-play-demo]");
     const playCopy = filmDialog?.querySelector("[data-play-copy]");
     playDemo?.addEventListener("click", () => { const playing = playDemo.classList.toggle("is-playing"); playDemo.textContent = playing ? "Ⅱ" : "▶"; if (playCopy) playCopy.textContent = playing ? "TRAILER ROOM / DEMO PLAYING" : "TRAILER ROOM / DEMO DATA"; });
