@@ -3,43 +3,81 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="映画監督になろう — あなたの映画を、世界へ届けるクリエイターズ・プラットフォーム。" />
-    <title>映画監督になろう | CINEVERSE</title>
+    <meta name="description" content="映画監督になろう — 日本の映画制作者のための投稿サイト。デザイン検討用トップページ試作。" />
+    <title>映画監督になろう（試作） | CINEVERSE</title>
     <link rel="stylesheet" href="../assets/styles.css" />
   </head>
-  <body class="creator-page">
-    <header class="site-header">
-      <a class="wordmark" href="index.html">映画監督になろう<b>by CINEVERSE</b></a>
+  <body class="creator-page creator-prototype">
+    <header class="site-header director-header">
+      <a class="wordmark director-wordmark" href="#top">映画監督になろう<b>by CINEVERSE</b></a>
       <nav class="site-nav" aria-label="メインメニュー">
-        <a href="#works">みんなの作品</a><a href="#howto">はじめかた</a><a href="#community">コミュニティ</a>
-        <a class="nav-service" href="../jishu-eiga-net/index.html">自主映画ねっと ↗</a>
+        <a href="#works">みんなの作品</a><a href="#howto">はじめかた</a><a href="#community">仲間とつながる</a>
+        <a class="nav-service" href="../jishu-eiga-net/">自主映画ねっと ↗</a>
         <a class="nav-button" href="#start">作品を投稿する</a>
       </nav>
       <button class="mobile-toggle" type="button" aria-label="メニューを開く" aria-expanded="false">☰</button>
     </header>
+
     <main>
-      <section class="creator-hero">
-        <span class="eyebrow">A HOME FOR JAPANESE FILMMAKERS</span>
-        <h1>あなたの映画を、<br /><em>世界へ。</em></h1>
-        <p>はじめての一本も、次の挑戦も。<br />つくった映画を見せることから、映画監督への道が始まります。</p>
-        <div class="creator-hero-actions"><a class="button-main" href="#start">無料で作品を投稿する →</a><a class="button-ghost" href="#howto">はじめかたを見る</a></div>
-      </section>
-      <section class="creator-stats" aria-label="コミュニティの実績"><div class="stat"><strong>1,240</strong><span>REGISTERED CREATORS</span></div><div class="stat"><strong>865</strong><span>FILMS SHARED</span></div><div class="stat"><strong>47</strong><span>PREFECTURES CONNECTED</span></div></section>
-      <section class="creator-section" id="works">
-        <div class="section-head"><div><span class="eyebrow">COMMUNITY SCREENING</span><h2 class="section-title">いま、つくられている映画</h2></div><a class="section-link" href="#works">すべての作品を見る ↗</a></div>
-        <div class="creator-grid">
-          <article class="creator-card"><div class="poster poster-red"><div><span class="poster-date">SHORT FILM / TOKYO</span><span class="poster-name">赤い月曜日</span></div></div><div class="creator-meta"><h3>赤い月曜日</h3><p>山岸 真琴 · 2026 · ドラマ</p></div></article>
-          <article class="creator-card"><div class="poster poster-blue"><div><span class="poster-date">SHORT FILM / OSAKA</span><span class="poster-name">海辺の<br />手紙</span></div></div><div class="creator-meta"><h3>海辺の手紙</h3><p>村上 蒼太 · 2026 · 青春</p></div></article>
-          <article class="creator-card"><div class="poster poster-green"><div><span class="poster-date">DOCUMENTARY / FUKUOKA</span><span class="poster-name">わたしたちの<br />庭</span></div></div><div class="creator-meta"><h3>わたしたちの庭</h3><p>高橋 桃子 · 2026 · ドキュメンタリー</p></div></article>
+      <section class="director-hero" id="top" aria-labelledby="director-hero-title">
+        <div class="director-hero__copy">
+          <p class="director-prototype-badge">CONCEPT PROTOTYPE <span>DESIGN REVIEW</span></p>
+          <p class="director-kicker">A PLACE TO START MAKING FILMS</p>
+          <h1 id="director-hero-title">つくる。<br /><em>見せる。</em><br />つながる。</h1>
+          <p class="director-lead">映画をつくった人も、これからつくる人も。<br />あなたの一本が、次の仲間と観客に出会う場所。</p>
+          <div class="director-hero__actions"><a class="director-button director-button--light" href="#start">作品を投稿する <span>→</span></a><a class="director-button director-button--line" href="#howto">3分でわかる、はじめかた</a></div>
+          <p class="director-demo-note">これは知り合いとデザインを検討するための公開試作です。投稿機能はまだ実装されていません。</p>
         </div>
+
+        <div class="director-hero__stage" aria-hidden="true">
+          <div class="director-stage-sun"></div>
+          <div class="director-stage-film"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+          <div class="director-stage-screen"><span>TAKE 01</span><strong>YOUR<br />STORY<br />STARTS<br />HERE.</strong><small>FILM DIRECTOR<br />PROTOTYPE</small></div>
+          <div class="director-stage-clapper"><b>SCENE 01</b><span></span><i></i></div>
+          <div class="director-stage-note director-stage-note--one">WRITE<br /><b>WHAT YOU<br />WANT TO SEE.</b></div>
+          <div class="director-stage-note director-stage-note--two">SHOOT<br /><b>WITH YOUR<br />PEOPLE.</b></div>
+          <p class="director-stage-caption">CAMERA<br />ROLLING <i>●</i></p>
+        </div>
+
+        <a class="director-scroll" href="#works"><span>SCROLL TO THE SCREEN</span><i>↓</i></a>
       </section>
-      <section class="creator-section alt" id="howto">
-        <div class="section-head"><div><span class="eyebrow">START YOUR FIRST SCREENING</span><h2 class="section-title">映画を届ける、3つのステップ</h2></div></div>
-        <div class="start-flow"><article class="flow-card"><span class="flow-num">01 / PROFILE</span><h3>プロフィールを<br />つくる</h3><p>好きな映画や、つくりたい物語を教えてください。あなたの映画館ができます。</p></article><article class="flow-card"><span class="flow-num">02 / UPLOAD</span><h3>作品を<br />投稿する</h3><p>YouTubeまたはVimeoのリンクと、作品への想いを登録。公開はいつでも自分で決められます。</p></article><article class="flow-card"><span class="flow-num">03 / CONNECT</span><h3>観客・仲間と<br />つながる</h3><p>コメントやお気に入りを通じて、次の映画につながる出会いを見つけましょう。</p></article></div>
+
+      <section class="director-steps-strip" aria-label="映画づくりの流れ">
+        <span>01&nbsp; WRITE</span><i>✦</i><span>02&nbsp; SHOOT</span><i>✦</i><span>03&nbsp; EDIT</span><i>✦</i><span>04&nbsp; SHARE</span><i>✦</i><span>05&nbsp; NEXT TAKE</span>
       </section>
-      <section class="upload-area" id="start"><div><span class="eyebrow">JOIN CINEVERSE</span><h2>さあ、あなたの<br />映画をはじめよう。</h2></div><form class="upload-form" data-upload-form><input name="name" type="text" placeholder="お名前" required /><input name="email" type="email" placeholder="メールアドレス" required /><select name="role"><option>作品を投稿したい</option><option>まずは観てみたい</option><option>映画仲間を探したい</option></select><button type="submit">無料アカウントを作成する →</button><p class="form-message" aria-live="polite"></p></form></section>
+
+      <section class="director-screening" id="works" aria-labelledby="screening-title">
+        <div class="director-section-head"><div><p>ON THE CREATOR'S SCREEN</p><h2 id="screening-title">誰かの「最初の一本」を、<br />みんなで観よう。</h2></div><a href="#prototype-note">作品一覧のデザインを見る ↗</a></div>
+        <div class="director-film-shelf">
+          <article class="director-film director-film--coral"><p>DRAMA / TOKYO</p><strong>光が消える<br />その前に</strong><span>監督：河野 まどか</span><i>12:18</i></article>
+          <article class="director-film director-film--blue"><p>DOCUMENTARY / NAGANO</p><strong>山の向こうで<br />待っている</strong><span>監督：森 陽太</span><i>24:05</i></article>
+          <article class="director-film director-film--yellow"><p>ANIMATION / KYOTO</p><strong>月曜日の<br />ロボット</strong><span>監督：今井 真帆</span><i>06:42</i></article>
+          <article class="director-film director-film--dark"><p>SHORT FILM / OKINAWA</p><strong>海の町の<br />エンドロール</strong><span>監督：比嘉 晴人</span><i>17:30</i></article>
+        </div>
+        <p class="director-caption">作品カードは表示デザインのためのダミーです。実在の作品・人物ではありません。</p>
+      </section>
+
+      <section class="director-howto" id="howto" aria-labelledby="howto-title">
+        <div class="director-howto__intro"><p>FROM IDEA TO AUDIENCE</p><h2 id="howto-title">一本目を、<br />世界の入り口へ。</h2><span>上映時間もジャンルも、制作経験も問いません。あなたの作品の見せ方を、シンプルな3つの画面で支えます。</span></div>
+        <ol class="director-howto__flow">
+          <li><b>01</b><strong>監督のページを<br />つくる</strong><span>好きな映画、つくりたい物語、プロフィールを一枚の名刺のように。</span></li>
+          <li><b>02</b><strong>作品と想いを<br />投稿する</strong><span>映画のリンク、作品情報、制作メモを登録。公開するかは自分で選べます。</span></li>
+          <li><b>03</b><strong>観客と仲間に<br />届く</strong><span>応援やコメントを受け取り、次の撮影へつながる出会いを見つけます。</span></li>
+        </ol>
+      </section>
+
+      <section class="director-community" id="community" aria-labelledby="community-title">
+        <div class="director-community__board" aria-hidden="true"><span class="director-board-pin director-board-pin--one"></span><span class="director-board-pin director-board-pin--two"></span><p>CAST<br />募集中</p><p>撮影日<br />10.12 SAT</p><p>編集の<br />相談したい</p><strong>GOOD<br />FILMS<br />NEED<br />GOOD<br />PEOPLE.</strong></div>
+        <div class="director-community__copy"><p>CREW BOARD</p><h2 id="community-title">映画は、<br />ひとりで始めてもいい。</h2><span>撮影、出演、編集、音楽、相談相手。映画づくりの途中で必要になる「誰か」と、ゆるやかにつながる掲示板を考えています。</span><a href="#prototype-note">コミュニティ画面の構想を見る <i>→</i></a></div>
+      </section>
+
+      <section class="director-start" id="start" aria-labelledby="start-title">
+        <div><p>YOUR NEXT TAKE</p><h2 id="start-title">あなたの物語は、<br /><em>いまからでも遅くない。</em></h2></div>
+        <div class="director-start__card" id="prototype-note"><span>PROTOTYPE NOTICE</span><strong>投稿画面は<br />次の検討対象です。</strong><p>アカウント作成・作品投稿・コメントなどは、この試作では動作しません。</p><a href="mailto:?subject=CINEVERSE%20%E6%98%A0%E7%94%BB%E7%9B%A3%E7%9D%A3%E3%81%AB%E3%81%AA%E3%82%8D%E3%81%86%20%E8%A9%A6%E4%BD%9C%E3%81%AE%E6%84%8F%E8%A6%8B">このデザインについて話す <i>↗</i></a></div>
+      </section>
     </main>
-    <footer class="site-footer"><div class="footer-top"><div class="footer-brand">CINE<span>VERSE</span></div><div class="footer-links"><a href="../index.html">CINEVERSEについて</a><a href="../jishu-eiga-net/index.html">自主映画ねっと</a><a href="#community">コミュニティガイドライン</a><a href="#">お問い合わせ</a></div></div><div class="footer-bottom"><span>© PROJECT CINEVERSE</span><span>MAKE FILMS. SHARE STORIES.</span></div></footer>
+
+    <footer class="site-footer director-footer"><div class="footer-top"><div class="footer-brand">CINE<span>VERSE</span></div><div class="footer-links"><a href="../index.html">CINEVERSEについて</a><a href="../jishu-eiga-net/">自主映画ねっと</a><a href="#top">ページ上部へ</a></div></div><div class="footer-bottom"><span>© PROJECT CINEVERSE</span><span>CONCEPT PROTOTYPE / NOT A LIVE SERVICE</span></div></footer>
     <script src="../assets/app.js"></script>
   </body>
 </html>
