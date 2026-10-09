@@ -395,6 +395,30 @@ body.is-town-motion-off .town-confetti i { will-change:auto; }@media (prefers-re
 .official-media-page .city-sign--film { left:-5%; bottom:24%; transform:rotate(-4deg) scale(.83); transform-origin:left bottom; }
 @media (max-width:780px) { .official-media-page .city-sign--film { left:-9%; bottom:26%; transform:rotate(-4deg) scale(.72); } }
 
+/* On phones, the street remains as a grounding layer without the three yellow lane markers. */
+@media (max-width:780px) { .city-road i { display:none; } }
+
+/* A quieter, layered cadence keeps the single guide illustration feeling present without distorting it. */
+.is-town-enhanced .town-character-stage__aura { animation:townGuideDelicateAura 12.8s ease-in-out infinite; }
+.is-town-enhanced .town-character-stage__image-wrap { animation:townGuideDelicateSway 13.6s cubic-bezier(.42,0,.25,1) infinite; }
+.is-town-enhanced .town-character-stage.has-town-character .town-character-stage__image-wrap .town-character-stage__image { animation:townGuideDelicateBreath 7.8s ease-in-out -2.1s infinite; }
+.is-town-enhanced .town-character-stage__ground-shadow { animation:townGuideDelicateGrounding 13.6s cubic-bezier(.42,0,.25,1) infinite; }
+.is-town-enhanced .town-character-stage__hair-breeze { animation:townGuideDelicateHair 13.2s ease-in-out -3.7s infinite; }
+.is-town-enhanced .town-character-stage__headset-light { animation:townGuideDelicateHeadset 10.6s ease-in-out .4s infinite; }
+.is-town-enhanced .town-character-stage__eye-glint { animation:townGuideDelicateEyeGlint 15.8s ease-in-out -5.2s infinite; }
+.is-town-enhanced .town-character-stage__clapper-glint { animation:townGuideDelicateClapperGlint 17.6s ease-in-out -6.8s infinite; }
+.is-town-enhanced .town-character-stage__bag-glow { animation:townGuideDelicateBag 13.6s cubic-bezier(.42,0,.25,1) infinite; }
+@keyframes townGuideDelicateAura { 0%,100% { opacity:.4; transform:scale(.98); } 48% { opacity:.55; transform:scale(1.012); } }
+@keyframes townGuideDelicateSway { 0%,100% { transform:translate3d(0,0,0) rotate(-.07deg); } 32% { transform:translate3d(.45px,-.9px,0) rotate(.06deg); } 61% { transform:translate3d(-.35px,-1.45px,0) rotate(.1deg); } 82% { transform:translate3d(-.18px,-.55px,0) rotate(-.03deg); } }
+@keyframes townGuideDelicateBreath { 0%,100% { transform:translate3d(0,0,0) scale(1); filter:drop-shadow(0 12px 18px rgba(19,17,63,.35)); } 49% { transform:translate3d(0,-.45px,0) scale(1.0017,1.0006); filter:drop-shadow(0 13px 19px rgba(31,24,72,.39)); } }
+@keyframes townGuideDelicateGrounding { 0%,100% { opacity:.18; transform:scaleX(1); } 58% { opacity:.235; transform:scaleX(.972); } }
+@keyframes townGuideDelicateHair { 0%,100% { opacity:.06; transform:translateX(-.5px) rotate(-1deg) scale(.985); } 47% { opacity:.14; transform:translateX(1.25px) rotate(1.6deg) scale(1.018); } 70% { opacity:.09; transform:translateX(.35px) rotate(.35deg) scale(1.004); } }
+@keyframes townGuideDelicateHeadset { 0%,100% { opacity:.1; transform:scale(.91); } 45% { opacity:.31; transform:scale(1.035); } 58% { opacity:.15; transform:scale(.97); } }
+@keyframes townGuideDelicateEyeGlint { 0%,47%,51%,100% { opacity:0; transform:scale(.8); } 48% { opacity:.34; transform:scale(1.03); } 49% { opacity:.12; transform:scale(.92); } }
+@keyframes townGuideDelicateClapperGlint { 0%,63%,100% { opacity:0; transform:translateX(-5%) rotate(-14deg); } 65% { opacity:.32; transform:translateX(8%) rotate(-14deg); } 67% { opacity:0; transform:translateX(16%) rotate(-14deg); } }
+@keyframes townGuideDelicateBag { 0%,100% { opacity:.09; transform:translateX(0) rotate(-12deg); } 46% { opacity:.18; transform:translateX(1.5px) rotate(-10.5deg); } 68% { opacity:.12; transform:translateX(.65px) rotate(-11.4deg); } }
+@media (max-width:780px) { .is-town-enhanced .town-character-stage__image-wrap { animation-duration:15.2s; }.is-town-enhanced .town-character-stage.has-town-character .town-character-stage__image-wrap .town-character-stage__image { animation-duration:9.2s; }.is-town-enhanced .town-character-stage__headset-light { animation-duration:13.5s; }.is-town-enhanced .town-character-stage__eye-glint { animation-duration:19s; } }
+
 /* Jishu Eiga Net V2: data-driven directories and filters */
 .town-action--random { color:#282244; background:#74e4ee; border-color:#74e4ee; }
 .database-hero--films { display:grid; grid-template-columns:minmax(0,1fr) auto; gap:35px; align-items:end; }
